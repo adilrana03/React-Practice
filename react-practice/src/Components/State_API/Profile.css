@@ -1,0 +1,6 @@
+.card {
+	display: flex;
+	margin: 50px auto;
+	width: 800px;
+	box-shadow: 0 0 10px black;
+}

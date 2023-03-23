@@ -1,0 +1,17 @@
+import {useState} from 'react';
+import Input from './Input';
+
+const Text = () => {
+
+        const [state, setState]= useState("No Data")
+
+  return (
+    <div style={{padding:"30px", boxShadow:"0 0 10px teal", margin:"30px auto", width:"500px"}}>
+        <h2>Text Component</h2>
+        <p>{state}</p>
+        <Input SetState={setState}/>
+    </div>
+  )
+}
+
+export default Text
