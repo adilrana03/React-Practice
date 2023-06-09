@@ -1,31 +1,55 @@
-import { useState, useRef } from "react";
-import Styles from "./Timer.module.css";
+// import { useState, useRef } from "react";
+// import Styles from "./Timer.module.css";
 
-function Timer(props) {
-  const [timer, setTimer] = useState(0);
-  const ref1 = useRef();
+// function Timer(props) {
+//   const [timer, setTimer] = useState(0);
+//   const ref1 = useRef();
 
-  let interval;
+//   let interval;
 
-  console.log(interval); // undefined // undefined
-  const startTimer = () => {
-    ref1.current = setInterval(() => {
-      console.log("Inside setInterval", interval); //1
-      setTimer((prevTimer) => prevTimer + 1);
-    }, 1000);
-  };
+//   console.log(interval); // undefined // undefined
+//   const startTimer = () => {
+//     ref1.current = setInterval(() => {
+//       console.log("Inside setInterval", interval); //1
+//       setTimer((prevTimer) => prevTimer + 1);
+//     }, 1000);
+//   };
 
-  const stopTimer = () => {
-    clearInterval(ref1.current); //undefined
-  };
+//   const stopTimer = () => {
+//     clearInterval(ref1.current); //undefined
+//   };
+//   return (
+//     <div className={Styles.timerContainer}>
+//       <h2>Timer is {timer}</h2>
+//       <button onClick={startTimer}>Start</button>
+//       &nbsp;&nbsp;&nbsp;
+//       <button onClick={stopTimer}>Stop</button>
+//     </div>
+//   );
+// }
+
+// export default Timer;
+
+import React,{useState} from 'react'
+
+const Timer = () => {
+
+  const [state,setState]= useState(1);
+
+  const handleClick =()=>{
+    setState((prevState)=>prevState+1);
+    // setState((prevState)=>prevState+2);
+  }
+
   return (
-    <div className={Styles.timerContainer}>
-      <h2>Timer is {timer}</h2>
-      <button onClick={startTimer}>Start</button>
-      &nbsp;&nbsp;&nbsp;
-      <button onClick={stopTimer}>Stop</button>
-    </div>
-  );
+    <>
+      <div style={{textAlign:"center"}}>
+        <h1>Update Count is {state} </h1>
+        <button onClick={handleClick}>Update Count</button>
+      </div>
+    </>
+
+  )
 }
 
-export default Timer;
+export default Timer
