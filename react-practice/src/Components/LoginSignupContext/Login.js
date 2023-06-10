@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { loginContext } from "./Context/context";
+import React, { useState, useContext } from 'react'
+import loginContext from './Context';
 
 var loginStyle = {
   width: "300px",
@@ -8,39 +8,48 @@ var loginStyle = {
   boxShadow: "0 0 10px black",
   margin: "50px auto",
 };
-function Login(props) {
-  const [state, setState] = useState({
+
+
+
+
+
+
+const Login = () => {
+
+  const {setState} = useContext(loginContext);
+
+  const [input, setInput] = useState({
     name: "",
-    password: "",
+    password: ""
   });
 
-  const { fnLoggedIn } = useContext(loginContext);
-
-  const handleForm = (event) => {
-    event.preventDefault();
-    if (state.name === "Kabir" && state.password === "Kabir@123") {
-      // alert("Logged In");
-      fnLoggedIn({
-        isLoggedIn: true,
-        user: "Kabir",
-      });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (input.name === "Adil" && input.password === "123") {
+      setState({
+        isLoggedIn:true,
+        user:"Adil Rana"
+      })
     } else {
-      alert("Please Check the Credentials");
+      console.log("Wrong name")
+      alert("wrong credentials")
     }
-  };
+  }
+
+
 
   return (
     <div style={loginStyle}>
       <div>
         <h2>Login form</h2>
-        <form onSubmit={handleForm}>
+        <form onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
               placeholder="Enter Name"
               onChange={(e) => {
-                setState({
-                  ...state,
+                setInput({
+                  ...input,
                   name: e.target.value,
                 });
               }}
@@ -52,8 +61,8 @@ function Login(props) {
               type="password"
               placeholder="Enter Password"
               onChange={(e) => {
-                setState({
-                  ...state,
+                setInput({
+                  ...input,
                   password: e.target.value,
                 });
               }}
@@ -66,7 +75,7 @@ function Login(props) {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login

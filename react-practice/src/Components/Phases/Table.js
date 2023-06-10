@@ -52,7 +52,7 @@
 
 import React from 'react'
 
-const Table = () => {
+const Table = ({ data }) => {
   return (
     <div>
 
@@ -85,6 +85,7 @@ const Table = () => {
           </tbody>
         </thead>
       </table>
+      <button onClick={() => { data(true) }}>CARD</button>
     </div>
   )
 }

@@ -37,7 +37,7 @@ function Form(props) {
         </div>
         <br />
         <div>
-          <input type="text" placeholder="Enter Email" id="email" />
+          <input type="text" placeholder="Enter Email" id="email" ref={emailRef} />
         </div>
         <br />
         <div>

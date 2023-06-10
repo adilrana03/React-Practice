@@ -38,10 +38,28 @@
 import React, { useEffect, useState } from 'react'
 
 const Card = () => {
+
+
+  useEffect(()=>{
+    console.log("useeffect called 1 time");
+    localStorage.setItem("name", "Adil Rana");
+    return (()=>{
+      localStorage.removeItem("name");
+    })
+  },[])
   const [state, setState] = useState({
     img:"https://th.bing.com/th/id/R.d42e2e427e6cfa1ca2ed7696ff6e66e3?rik=ZcklKAipPlC%2bQQ&riu=http%3a%2f%2fdigitalsynopsis.com%2fwp-content%2fuploads%2f2014%2f06%2fsupercar-wallpapers-bugatti-3.jpg&ehk=WtfcviZKcVd56i5JO1NTcka%2fiD7dj2f3m1BUflVm75Q%3d&risl=&pid=ImgRaw&r=0",
     btn:"Bike"
   })
+
+  const handleClick =()=>{
+   if(state.btn === "Bike"){
+    setState({img:"https://wallpapercave.com/wp/wp1860926.jpg",btn:"Car"})
+   }else{
+    setState({img:"https://th.bing.com/th/id/R.d42e2e427e6cfa1ca2ed7696ff6e66e3?rik=ZcklKAipPlC%2bQQ&riu=http%3a%2f%2fdigitalsynopsis.com%2fwp-content%2fuploads%2f2014%2f06%2fsupercar-wallpapers-bugatti-3.jpg&ehk=WtfcviZKcVd56i5JO1NTcka%2fiD7dj2f3m1BUflVm75Q%3d&risl=&pid=ImgRaw&r=0",
+    btn:"Bike"})
+   }
+  }
 
 
   return (
@@ -54,8 +72,7 @@ const Card = () => {
             }}
       >
       <img src={state.img} alt="car"   width="300" height="300"/>
-
-      <button onClick={()=>{setState({img:"https://wallpapercave.com/wp/wp1860926.jpg",btn:"car"})}} >{state.btn}</button>
+      <button onClick={handleClick} >{state.btn}</button>
 
     </div>
   )
