@@ -19,7 +19,7 @@ import { useState } from 'react';
 import Header from './Components/LoginSignupContext/Header';
 import Auth from './Components/LoginSignupContext/Auth';
 import loginContext from '../src/Components/LoginSignupContext/Context';
-import { Route, Routes, Link } from 'react-router-dom';
+// import { Route, Routes, Link } from 'react-router-dom';
 
 function App() {
 
@@ -48,11 +48,11 @@ function App() {
         <loginContext.Provider value={{ state, setState, fnloggedOut }}>
           <Header />
           <Auth /> 
-          <Routes>
+          {/* <Routes>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/todo' element={<Todo/>}/>
 
-          </Routes>
+          </Routes> */}
 
 
         </loginContext.Provider>
