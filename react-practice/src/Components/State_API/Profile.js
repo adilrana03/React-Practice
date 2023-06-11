@@ -95,7 +95,7 @@
 
 
 
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 const Profile = () => {
 
@@ -112,9 +112,9 @@ const Profile = () => {
 		text:"check to change to dark mode"
 	})
 
-	// useEffect(()=>{
-
-	// },[])
+	useEffect(()=>{
+		getUserData();
+	},[])
 
 
 	const getUserData = () => {
