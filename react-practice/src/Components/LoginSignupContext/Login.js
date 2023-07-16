@@ -9,11 +9,6 @@ var loginStyle = {
   margin: "50px auto",
 };
 
-
-
-
-
-
 const Login = () => {
 
   const {setState} = useContext(loginContext);

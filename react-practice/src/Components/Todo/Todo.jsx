@@ -50,25 +50,32 @@
 import { React, useState } from 'react'
 
 const Todo = () => {
-
-
+  let n = 0;
   const [state, setState] = useState("")
   const [list, setList] = useState([]);
 
-
   const handleClick = () => {
     setList([...list, state]);
+    console.log(state)
+    // n = n + 1;
+    n = list.length + 1
+    console.log(n);
+
+
   }
 
 
-// Delete function added to delete the task
-  const deleteFun=(e,id)=>{
+  // Delete function added to delete the task
+  const deleteFun = (e, id) => {
     console.log("delete btn working");
     console.log(id);
-    const updatedData = list.filter((e,i)=>{
+    const updatedData = list.filter((e, i) => {
       return i !== id;
     })
     setList(updatedData);
+    n = list.length - 1;
+    console.log('from delete' + n)
+
   }
 
 
@@ -80,13 +87,12 @@ const Todo = () => {
           setState(e.target.value);
         }} />
         <button onClick={handleClick}>Done</button>
-        {list.map((e,i) => {
+        {list.map((e, i) => {
           return (
-            <div key={i+1}>
+            <div key={i + 1}>
               <h1 >
                 {e}
-                <button onClick={ ()=>{deleteFun(e,i)}}>Delete</button>
-                
+                <button onClick={() => { deleteFun(e, i) }}>Delete</button>
               </h1>
             </div>
           )

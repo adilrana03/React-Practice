@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 
 const ProductsDetails = () => {
-        const id = localStorage.getItem("id");
+        // const id = localStorage.getItem("id");
+
+        const {id}=useParams();
         const [state, setState] = useState("");
+
+
 
         useEffect(() => {
                 fetch(`http://fakestoreapi.com/products/${id}`)

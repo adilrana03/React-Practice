@@ -13,7 +13,7 @@ function Electronic(props) {
       })
   }, [])
 
-  const  addtoLoaclStorage=(id) => {
+  const addtoLoaclStorage = (id) => {
     localStorage.setItem("id", id);
     console.log("function Working");
     console.log(id)
@@ -27,7 +27,9 @@ function Electronic(props) {
           state.length > 0 ?
             state.map((e, i) => {
               return (
-                <NavLink to="/productDetails" onClick={()=>{addtoLoaclStorage(e.id)}}>
+                <NavLink to={`/productDetails/${e.id}`}
+                  // onClick={() => { addtoLoaclStorage(e.id) }}
+                  >
                   <li key={i + 1} style={{ color: "blue" }}>
                     {e.title}
                   </li>

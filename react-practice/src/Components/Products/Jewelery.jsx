@@ -26,7 +26,9 @@ function Jewelery(props) {
                     state.length > 0 ? (
                         state.map((e, i) => {
                             return (
-                                <NavLink to="/productDetails" style={{ color: "blue" }} onClick={()=>{addtoLocalStorage(e.id)}}>
+                                <NavLink to={`/productDetails/${e.id}`} style={{ color: "blue" }}
+                                //  onClick={()=>{addtoLocalStorage(e.id)}}
+                                 >
                                     <li key={i + 1}>{e.title}</li>
                                 </NavLink>
                             )
